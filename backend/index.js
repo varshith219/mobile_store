@@ -12,12 +12,12 @@ const userRoutes = require('./routes/userRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 
-const publicPath = path.join(__dirname, '..', 'frontend', 'public');
+const publicPath = path.join(__dirname, '..', 'frontend'); // ✅ FIXED
 const port = process.env.PORT || 5000;
 
 const app = express();
 
-// DB CONNECTION (UPDATED)
+// DB CONNECTION
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -44,7 +44,7 @@ app.use('/api/user', userRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/order', orderRoutes);
 
-// SERVE FRONTEND (ADDED)
+// Serve frontend
 app.get('*', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
 });
