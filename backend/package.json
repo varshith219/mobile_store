@@ -6,7 +6,7 @@
   "author": "Ivan Jakimovski",
   "license": "ISC",
   "engines": {
-    "node": "8.10.0"
+    "node": "18.x"
   },
   "scripts": {
     "start:dev": "nodemon index.js",
